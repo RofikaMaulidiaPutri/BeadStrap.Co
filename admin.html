@@ -69,8 +69,12 @@ th{
 </head>
 <body>
 
-<div class="header">
+<<div class="header">
     <h1>👑 Dashboard Admin</h1>
+
+    <button class="btn" onclick="logoutAdmin()">
+        🚪 Logout Admin
+    </button>
 </div>
 
 <div class="container">
@@ -109,6 +113,13 @@ th{
 
 <script>
 
+// ================= CEK LOGIN ADMIN =================
+if(localStorage.getItem("admin") !== "true"){
+    alert("Akses ditolak!");
+    window.location.href = "login.html";
+}
+
+// ================= LOAD PESANAN =================
 let orders =
 JSON.parse(localStorage.getItem("orders")) || [];
 
@@ -132,6 +143,7 @@ html += `
 
 document.getElementById("dataPesanan").innerHTML = html;
 
+// ================= HAPUS SEMUA =================
 function hapusSemua(){
 
 if(confirm("Hapus semua pesanan?")){
@@ -143,7 +155,18 @@ location.reload();
 }
 
 }
-</script>
 
-</body>
-</html>
+// ================= LOGOUT ADMIN =================
+function logoutAdmin(){
+
+if(confirm("Logout admin?")){
+
+localStorage.removeItem("admin");
+localStorage.removeItem("user");
+
+window.location.href = "login.html";
+
+}
+
+}
+</script>
