@@ -629,3 +629,115 @@ html{
     box-shadow: 0 0 8px rgba(255,105,180,0.6);
 }
 
+/* ================= GLOBAL 3D ANIMATION ================= */
+
+/* semua box */
+.box,
+.card,
+.login-box,
+.container,
+.detail-box,
+.kontak-box,
+.tentang-box{
+    animation: fadeUp 0.8s ease;
+    transition: all .4s ease;
+    transform-style: preserve-3d;
+}
+
+.box:hover,
+.card:hover,
+.login-box:hover,
+.detail-box:hover,
+.kontak-box:hover,
+.tentang-box:hover{
+    transform:
+        perspective(1000px)
+        rotateX(5deg)
+        rotateY(-5deg)
+        scale(1.02);
+
+    box-shadow:
+        0 25px 40px rgba(0,0,0,.2),
+        0 0 25px rgba(255,105,180,.4);
+}
+
+/* input animasi */
+input,
+textarea,
+select{
+    transition:.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    transform:scale(1.03);
+    box-shadow:0 0 15px rgba(255,105,180,.4);
+}
+
+/* tombol semua halaman */
+button,
+.btn{
+    transition:.3s;
+}
+
+button:hover,
+.btn:hover{
+    transform:
+        translateY(-3px)
+        scale(1.05);
+
+    box-shadow:
+        0 10px 25px rgba(255,105,180,.4);
+}
+
+/* tabel admin */
+table{
+    animation:fadeUp 1s ease;
+}
+
+table tr{
+    transition:.3s;
+}
+
+table tr:hover{
+    background:#fff0f8;
+    transform:scale(1.01);
+}
+
+/* judul bergerak */
+h1{
+    animation:floatText 3s ease-in-out infinite;
+}
+
+/* halaman muncul halus */
+body{
+    animation:fadeUp .8s ease;
+}
+
+/* efek glow mouse */
+body:hover #cursor-glow{
+    opacity:1;
+}
+
+/* kartu admin */
+.card{
+    cursor:pointer;
+}
+
+/* efek melayang */
+@keyframes floatingCard{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+.card,
+.login-box{
+    animation:
+        fadeUp .8s ease,
+        floatingCard 5s ease-in-out infinite;
+}
